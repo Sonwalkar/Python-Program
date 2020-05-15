@@ -30,30 +30,32 @@ def makeUniquelist(key, alpha):
 
     return uniquelist
 
-
 def msgPair(msg):
     # Convert message string to list
     msglist = list(msg)
     #message pair list
     msgpr = []
 
+    # If same letters paired then add 'x' befor second letter
+    i=0
+    for k in range(math.ceil(len(msglist) / 2)):
+        if msglist[i] == msglist[i+1]:
+            msglist.insert(i+1, 'x')
+        i += 2
+
     # If message lenth is odd then add "x" at the end pair
-    if len(msg)%2 != 0:
+    if len(msglist)%2 != 0:
         msglist.append('z')
 
     # Makes message paring
-    for i in range(math.ceil(len(msg)/2)):
+    for i in range(math.ceil(len(msglist)/2)):
         rowList = []
         for j in range(2):
             rowList.append(msglist[2 * i + j])
         msgpr.append(rowList)
 
-    # If same letters paired then replace second letter by "x"
-    for k in range(math.ceil(len(msg)/2)):
-        if msgpr[k][0] == msgpr[k][1]:
-            msgpr[k][1] = 'x'
-
     return msgpr
+
 
 
 def getindex(matrix, column):
