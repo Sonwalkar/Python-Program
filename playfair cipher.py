@@ -1,4 +1,4 @@
-''' Playfair Cipher '''
+''' Playfair Cipher Encryption'''
 
 import math, time
 
